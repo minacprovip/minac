@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Portal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0f172a;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="target-frame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+
+    <script>
+        // Tự động tải ngay khi trang vừa khởi động xong
+        window.addEventListener('DOMContentLoaded', function() {
+            // Địa chỉ đã được mã hóa Base64 để ẩn khỏi mã nguồn thuần
+            const encodedUrl = 'aHR0cHM6Ly9jb25tZW9sYXliYWRnZS5vbnJlbmRlci5jb20v';
+            
+            // Giải mã và gán trực tiếp vào iframe
+            const decodedUrl = atob(encodedUrl);
+            document.getElementById('target-frame').src = decodedUrl;
+        });
+    </script>
+
+</body>
+</html>
